@@ -84,7 +84,7 @@ bot.onText(/(.+)$/, function (msg, match) {
                 {
                     // add the line break if not the first answer
                     if (itemsFound==0) 
-                        formattedAnswer += " " + targetTime + " Barang yang ditanyakan:\n\n";
+                        formattedAnswer += " Barang yang ditanyakan:\n\n";
                     else 
                         formattedAnswer += "\n\n";
                         
@@ -108,7 +108,7 @@ bot.onText(/(.+)$/, function (msg, match) {
         if (itemsFound == 0)
         {
             if (targetTime<0 || targetTime>24 || currentAnswer != '')
-                formattedAnswer = ".\n\n";
+                formattedAnswer = "barang yang anda cari tidak ditemukan\n\n";
             else 
                 formattedAnswer = "barang yang anda cari tidak ditemukan";
                 
