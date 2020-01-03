@@ -27,7 +27,7 @@ var moment = require('moment-timezone');
 
 bot.onText(/(.+)$/, function (msg, match) {
     // keywords are anything typed in
-  var keywords = match[1]; || var keywords = match[5];
+  var keywords = match[1];
   var request = require("request");
       
     // send request to retrieve the spreadsheet as the JSON 
