@@ -107,7 +107,7 @@ bot.onText(/(.+)$/, function (msg, match) {
         // if no items were found for the given time 
         if (itemsFound == 0)
         {
-            if (targetTime<0 || targetTime>24)
+            if (targetTime<0 || targetTime>24 || currentAnswer != '')
                 formattedAnswer = ".\n\n";
             else 
                 formattedAnswer = "barang yang anda cari tidak ditemukan";
