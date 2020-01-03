@@ -84,7 +84,7 @@ bot.onText(/(.+)$/, function (msg, match) {
                 {
                     // add the line break if not the first answer
                     if (itemsFound==0) 
-                        formattedAnswer += "At " + targetTime + " these talks will take place:\n\n";
+                        formattedAnswer += " " + targetTime + " Barang yang ditanyakan:\n\n";
                     else 
                         formattedAnswer += "\n\n";
                         
@@ -108,16 +108,11 @@ bot.onText(/(.+)$/, function (msg, match) {
         if (itemsFound == 0)
         {
             if (targetTime<0 || targetTime>24)
-                formattedAnswer = "Enter the time to show talks or write 'Hi'.\n\n";
+                formattedAnswer = ".\n\n";
             else 
-                formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
+                formattedAnswer = "barang yang anda cari tidak ditemukan";
                 
-            // output current answer
-            if (currentAnswer != '')
-            {
-                formattedAnswer += "Hi! As of " + currentHours + ":" + currentMinutes + " " + config.confTimeZone+ " these talks are going:\n";
-                formattedAnswer += currentAnswer;
-            }
+            
         }
     
         // send message telegram finally
