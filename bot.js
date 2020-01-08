@@ -18,7 +18,7 @@ console.log('secon-bot server started...');
 
 // Make sure it is public or set to Anyone with link can view 
 // "od6" is the fist worksheet in the spreadsheet
-var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/2/public/values?alt=json";
+var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/od6/public/values?alt=json";
 
 var moment = require('moment-timezone');
 
@@ -110,9 +110,9 @@ bot.onText(/(.+)$/, function (msg, match) {
                 formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
                 
             // output current answer
-            if (currentAnswer != '')
+            if (currentAnswer == '/start')
             {
-                formattedAnswer += "Hi! As of " + currentHours + ":" + currentMinutes + " " + config.confTimeZone+ " these talks are going:\n";
+                formattedAnswer += "untuk mencari barang, kata kunci pakai type barang+seri barang contoh untuk type nvr4104hs-4kl-x tulis saja nvr4104, contoh ke 2 bila mau cari IPC-HDW123sp cukup tulis hdw1230";
                 formattedAnswer += currentAnswer;
             }
         }
