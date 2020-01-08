@@ -110,7 +110,7 @@ bot.onText(/(.+)$/, function (msg, match) {
                 formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
                 
             // output current answer
-            if (currentAnswer != '')
+            if (currentAnswer != 'hi')
             {
                 formattedAnswer += "Hi! As of " + currentHours + ":" + currentMinutes + " " + config.confTimeZone+ " these talks are going:\n";
                 formattedAnswer += currentAnswer;
