@@ -75,6 +75,7 @@ bot.onText(/(.+)$/, function (msg, match){
                     itemsFound++;
                     formattedAnswer += '\u27a1' + item.content.$t; 
                 }
+		});
 
 
         if (itemsFound == 0)
@@ -97,6 +98,12 @@ bot.onText(/(.+)$/, function (msg, match){
         });
     
     });
+
+
+});
+
+
+
 
 
 
