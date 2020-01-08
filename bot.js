@@ -18,7 +18,7 @@ console.log('secon-bot server started...');
 
 // Make sure it is public or set to Anyone with link can view 
 // "od6" is the fist worksheet in the spreadsheet
-var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/od6/public/values?alt=json";
+var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/1/public/values?alt=json";
 
 var moment = require('moment-timezone');
 
