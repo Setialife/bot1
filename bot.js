@@ -1,8 +1,5 @@
-// Created by Evgenii Mironichev, Copyright 2016,
-// based on this awesome tutorial: https://mvalipour.github.io/node.js/2015/11/10/build-telegram-bot-nodejs-heroku/
 
-var config = require('./config'); // rename config.js.example into config.js and set keys and tokens inside it
-
+var config = require('./config'); 
 var Bot = require('node-telegram-bot-api');
 var bot;
 
@@ -26,7 +23,7 @@ var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey 
 var moment = require('moment-timezone');
 
 bot.onText(/(.+)$/, function (msg, match) {
-    // keywords are anything typed in
+    
   var keywords = match[1];
   var request = require("request");
       
@@ -84,7 +81,7 @@ bot.onText(/(.+)$/, function (msg, match) {
                 {
                     // add the line break if not the first answer
                     if (itemsFound==0) 
-                        formattedAnswer += " Barang yang ditanyakan:\n\n";
+                        formattedAnswer += "At " + targetTime + " these talks will take place:\n\n";
                     else 
                         formattedAnswer += "\n\n";
                         
@@ -107,12 +104,17 @@ bot.onText(/(.+)$/, function (msg, match) {
         // if no items were found for the given time 
         if (itemsFound == 0)
         {
-            if (targetTime<0 || targetTime>24 || currentAnswer != '')
-                formattedAnswer = "barang yang anda cari tidak ditemukan\n\n";
+            if (targetTime<0 || targetTime>24)
+                formattedAnswer = "Enter the time to show talks or write 'Hi'.\n\n";
             else 
-                formattedAnswer = "barang yang anda cari tidak ditemukan";
+                formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
                 
-            
+            // output current answer
+            if (currentAnswer != '')
+            {
+                formattedAnswer += "Hi! As of " + currentHours + ":" + currentMinutes + " " + config.confTimeZone+ " these talks are going:\n";
+                formattedAnswer += currentAnswer;
+            }
         }
     
         // send message telegram finally
