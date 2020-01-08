@@ -104,7 +104,7 @@ bot.onText(/(.+)$/, function (msg, match) {
         // if no items were found for the given time 
         if (itemsFound == 0)
         {
-            if (targetTime<0 || targetTime>24)
+            if (targetTime<0 || targetTime>24 ||targetTime != 'hu')
                 formattedAnswer = "Enter the time to show talks or write 'Hi'.\n\n";
             else 
                 formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
