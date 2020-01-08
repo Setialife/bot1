@@ -51,7 +51,7 @@ bot.onText(/(.+)$/, function (msg, match) {
         }
         
         if (isNaN(targetTime))
-            targetTime = parsed;
+            targetTime = keywords;
         
         var formattedAnswer = "";
         
