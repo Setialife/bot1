@@ -1,5 +1,8 @@
+// Created by Evgenii Mironichev, Copyright 2016,
+// based on this awesome tutorial: https://mvalipour.github.io/node.js/2015/11/10/build-telegram-bot-nodejs-heroku/
 
-var config = require('./config'); 
+var config = require('./config'); // rename config.js.example into config.js and set keys and tokens inside it
+
 var Bot = require('node-telegram-bot-api');
 var bot;
 
@@ -18,12 +21,12 @@ console.log('secon-bot server started...');
 
 // Make sure it is public or set to Anyone with link can view 
 // "od6" is the fist worksheet in the spreadsheet
-var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/1/public/values?alt=json";
+var url = "https://spreadsheets.google.com/feeds/list/" + config.googleSheetKey + "/od6/public/values?alt=json";
 
 var moment = require('moment-timezone');
 
 bot.onText(/(.+)$/, function (msg, match) {
-    
+    // keywords are anything typed in
   var keywords = match[1];
   var request = require("request");
       
@@ -67,7 +70,7 @@ bot.onText(/(.+)$/, function (msg, match) {
                 var itemTime = NaN;
                 var itemTitle = item.title.$t
                 try{
-                    itemTime = parseInt(itemTitle, 50);
+                    itemTime = parseInt(itemTitle, 10);
                 }
                 catch(e)
                 {
@@ -110,9 +113,9 @@ bot.onText(/(.+)$/, function (msg, match) {
                 formattedAnswer = "Can't find events for the given time ( " + targetTime+ " ч)";
                 
             // output current answer
-            if (currentAnswer == '/start')
+            if (currentAnswer != '')
             {
-                formattedAnswer += "untuk mencari barang, kata kunci pakai type barang+seri barang contoh untuk type nvr4104hs-4kl-x tulis saja nvr4104, contoh ke 2 bila mau cari IPC-HDW123sp cukup tulis hdw1230";
+                formattedAnswer += "Hi! As of " + currentHours + ":" + currentMinutes + " " + config.confTimeZone+ " these talks are going:\n";
                 formattedAnswer += currentAnswer;
             }
         }
