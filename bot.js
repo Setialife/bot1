@@ -107,9 +107,9 @@ bot.onText(/(.+)$/, function (msg, match) {
         // if no items were found for the given time 
         if (itemsFound == 0)
         {
-            if (keywords=='/start')
+            if (targetTime = '/start')
                 formattedAnswer = "untuk mencari barang, keyword yg dibutuhkan adalah type barang, contoh untuk mencari IPC-HDW1231SP ketik saja hdw1231, contoh ke 2, apabila ingin mencari NVR4108HS-4KL-X cukup ketik nvr4108.\n\n";
-            if (targetTime<0 || targetTime>24 || currentAnswer != '')
+            if (targetTime<0 || targetTime>24 || targetTime != '/start' || currentAnswer != '')
                 formattedAnswer = "Barang yang anda cari tidak tersedia atau keyword salah\n\n";
             else 
                 formattedAnswer = "barang yang anda cari tidak ditemukan";
